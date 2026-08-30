@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowDownRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -61,7 +60,7 @@ export default async function ProjectsPage() {
       <section className="paper-texture px-5 py-20 text-ink md:px-10 md:py-28">
         <div className="mx-auto flex max-w-[1500px] flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Your space / Next</p><h2 className="mt-5 text-[clamp(3.8rem,8vw,8rem)] font-semibold leading-[.84] tracking-[-.07em]">พื้นที่ต่อไป<br/>อาจเป็นของคุณ</h2></div>
-          <Link href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Brief us your project <ArrowDownRight className="size-5" /></Link>
+          <a href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Brief us your project <ArrowDownRight className="size-5" /></a>
         </div>
       </section>
       <SiteFooter />

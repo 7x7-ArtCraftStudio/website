@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowDownRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -91,7 +90,7 @@ export default function TeamPage() {
       <section className="paper-texture px-5 py-20 md:px-10 md:py-24">
         <div className="mx-auto flex max-w-[1450px] flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-4xl text-[clamp(3.4rem,7vw,7rem)] font-semibold leading-[.88] tracking-[-.065em]">อยากสร้างอะไร<br/>ไปด้วยกัน?</h2>
-          <Link href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Start a conversation <ArrowDownRight className="size-5" /></Link>
+          <a href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Start a conversation <ArrowDownRight className="size-5" /></a>
         </div>
       </section>
       <SiteFooter />

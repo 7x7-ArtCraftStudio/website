@@ -1,5 +1,4 @@
 import { ArrowDownRight } from 'lucide-react';
-import Link from 'next/link';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { catalogWorks } from '@/lib/catalog';
@@ -80,7 +79,7 @@ export default async function Home() {
             </article>
           ))}
         </div>
-        <div className="mt-20 flex justify-end border-t border-paper/20 pt-7"><Link href="/projects" className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[.18em] text-rust">View all projects <ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></Link></div>
+        <div className="mt-20 flex justify-end border-t border-paper/20 pt-7"><a href="/projects" className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[.18em] text-rust">View all projects <ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></a></div>
       </section>
 
       <section className="paper-texture px-5 py-20 md:px-10 md:py-28">
