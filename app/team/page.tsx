@@ -48,7 +48,7 @@ export default function TeamPage() {
             <p className="mt-8 max-w-xs font-mono text-xs leading-6 uppercase tracking-[.13em] text-ink/50">จากวันเกิดของผู้ก่อตั้ง 2 คน สู่สมาชิก 7 คน และความเป็นไปได้ที่ไม่สิ้นสุด</p>
           </div>
           <div>
-            <h2 className="max-w-5xl text-[clamp(3.1rem,7vw,7.5rem)] font-semibold leading-[.88] tracking-[-.065em]">เราไม่ได้รวมตัวกัน<br/>เพราะเหมือนกัน<br/><span className="text-rust">แต่เพราะความต่าง<br/>คูณกันได้</span></h2>
+            <h2 className="max-w-5xl text-[clamp(3.1rem,7vw,7.5rem)] font-semibold leading-[1.08] tracking-[-.065em]">เราไม่ได้รวมตัวกัน<br/>เพราะเหมือนกัน<br/><span className="text-rust">แต่เพราะความต่าง<br/>คูณกันได้</span></h2>
             <div className="mt-16 grid gap-8 border-t border-ink/30 pt-8 text-base leading-8 text-ink/65 md:grid-cols-2 md:text-lg">
               <p>7 × 7 ในตอนแรกมีความหมายจากเลขวันเกิดของผู้ก่อตั้ง 2 คน เมื่อเวลาผ่านไป เรามีสมาชิกเพิ่มขึ้นจนกลายเป็นศิลปินทั้งหมด 7 คน ที่มารวมตัวกันสร้างสรรค์ผลงานในสตูดิโอเล็ก ๆ</p>
               <p>แม้วันหนึ่งสมาชิกของเราจะต้องแยกย้ายไปตามความฝัน เราจะยังซัพพอร์ตกันเสมอ คนบางคนอาจหายไป คนใหม่อาจเข้ามาเติมเต็ม และสูตรคูณของความหลากหลายนี้จะเดินหน้าต่อไป</p>
@@ -90,7 +90,7 @@ export default function TeamPage() {
 
       <section className="paper-texture px-5 py-20 md:px-10 md:py-24">
         <div className="mx-auto flex max-w-[1450px] flex-col gap-10 md:flex-row md:items-end md:justify-between">
-          <h2 className="max-w-4xl text-[clamp(3.4rem,7vw,7rem)] font-semibold leading-[.88] tracking-[-.065em]">อยากสร้างอะไร<br/>ไปด้วยกัน?</h2>
+          <h2 className="max-w-4xl text-[clamp(3.4rem,7vw,7rem)] font-semibold leading-[1.08] tracking-[-.065em]">อยากสร้างอะไร<br/>ไปด้วยกัน?</h2>
           <a href={sitePath('/contact/')} className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Start a conversation <ArrowDownRight className="size-5" /></a>
         </div>
       </section>

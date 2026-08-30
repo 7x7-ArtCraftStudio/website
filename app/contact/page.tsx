@@ -3,6 +3,7 @@ import { ArrowDownRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { sitePath } from '@/lib/paths';
+import { ContactForm } from './contact-form';
 
 export const metadata: Metadata = {
   title: 'ติดต่อสตูดิโอ',
@@ -28,7 +29,7 @@ export default function ContactPage() {
 
       <section className="paper-texture px-5 py-20 md:px-10 md:py-28">
         <div className="mx-auto grid max-w-[1500px] gap-14 lg:grid-cols-[.7fr_1.3fr]">
-          <div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Reach us / 01</p><h2 className="mt-6 text-[clamp(3.2rem,6vw,6rem)] font-semibold leading-[.88] tracking-[-.06em]">เริ่มจาก<br/>บทสนทนา<br/>สั้น ๆ</h2></div>
+          <div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Reach us / 01</p><h2 className="mt-6 text-[clamp(3.2rem,6vw,6rem)] font-semibold leading-[1.08] tracking-[-.06em]">เริ่มจาก<br/>บทสนทนา<br/>สั้น ๆ</h2></div>
           <div className="border-t border-ink/35">
             <a href="tel:+66614109400" className="group grid gap-4 border-b border-ink/30 py-7 sm:grid-cols-[52px_1fr_auto] sm:items-center"><Phone className="size-5 text-rust"/><div><p className="font-mono text-[10px] uppercase tracking-[.18em] text-ink/45">Phone</p><p className="mt-1 text-2xl font-semibold">061 410 9400</p></div><ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"/></a>
             <a href="mailto:7x7art.studio@gmail.com" className="group grid gap-4 border-b border-ink/30 py-7 sm:grid-cols-[52px_1fr_auto] sm:items-center"><Mail className="size-5 text-rust"/><div><p className="font-mono text-[10px] uppercase tracking-[.18em] text-ink/45">Email</p><p className="mt-1 break-all text-xl font-semibold sm:text-2xl">7x7art.studio@gmail.com</p></div><ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"/></a>
@@ -46,8 +47,21 @@ export default function ContactPage() {
         ].map(([number, title, detail]) => <div key={number} className="min-h-[260px] border-b border-ink/30 p-6 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:p-10"><span className="font-mono text-xs text-rust">{number}</span><h3 className="mt-12 text-5xl font-semibold tracking-[-.05em]">{title}</h3><p className="mt-5 max-w-sm leading-7 text-ink/60">{detail}</p></div>)}
       </section>
 
+      <section className="relative overflow-hidden bg-wood px-5 py-20 text-paper md:px-10 md:py-28">
+        <div className="grain absolute inset-0" />
+        <div className="relative mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Send a brief / 02</p>
+            <h2 className="mt-6 text-[clamp(3.2rem,6vw,6rem)] font-semibold leading-[1.08] tracking-[-.06em]">เล่าโปรเจกต์<br/>ให้เราฟัง</h2>
+            <p className="mt-8 max-w-md text-base leading-8 text-paper/65">ยังไม่ต้องมีแบบที่สมบูรณ์ แค่เล่าโจทย์ พื้นที่ และความรู้สึกที่อยากสร้าง เราจะช่วยตั้งคำถามและหาวิธีที่เหมาะกับพื้นที่นั้นไปด้วยกัน</p>
+            <a href="mailto:7x7art.studio@gmail.com" className="mt-8 inline-block break-all border-b border-rust pb-1 font-mono text-xs tracking-[.08em] text-paper transition-colors hover:text-rust">7x7art.studio@gmail.com</a>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+
       <section className="grid min-h-[70vh] bg-ink lg:grid-cols-[.75fr_1.25fr]">
-        <div className="flex flex-col justify-between p-5 py-16 text-paper md:p-10 md:py-20"><div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Find the studio / 02</p><h2 className="mt-6 text-[clamp(3.2rem,6vw,6.5rem)] font-semibold leading-[.86] tracking-[-.06em]">COME<br/>SEE THE<br/>MESS.</h2></div><p className="mt-16 max-w-md leading-7 text-paper/55">สตูดิโอของเราอยู่ที่ประชาธิปัตย์ ธัญบุรี ปทุมธานี กรุณานัดหมายล่วงหน้าก่อนเข้าชม เพื่อให้ทีมเตรียมเวลาและพื้นที่ต้อนรับคุณได้เต็มที่</p></div>
+        <div className="flex flex-col justify-between p-5 py-16 text-paper md:p-10 md:py-20"><div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Find the studio / 03</p><h2 className="mt-6 text-[clamp(3.2rem,6vw,6.5rem)] font-semibold leading-[.86] tracking-[-.06em]">COME<br/>SEE THE<br/>MESS.</h2></div><p className="mt-16 max-w-md leading-7 text-paper/55">สตูดิโอของเราอยู่ที่ประชาธิปัตย์ ธัญบุรี ปทุมธานี กรุณานัดหมายล่วงหน้าก่อนเข้าชม เพื่อให้ทีมเตรียมเวลาและพื้นที่ต้อนรับคุณได้เต็มที่</p></div>
         <iframe src={mapUrl} title="แผนที่ 7x7 Art Craft Studio" className="min-h-[560px] h-full w-full border-0 grayscale contrast-125" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
       </section>
       <SiteFooter />

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://7x7-artcraftstudio.github.io/website/';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const socialImageUrl = new URL('og.png', siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`).toString();
 
 export const metadata: Metadata = {
@@ -16,6 +17,15 @@ export const metadata: Metadata = {
   creator: '7x7 Art Craft Studio',
   publisher: '7x7 Art Craft Studio Co., Ltd.',
   category: 'Art & Design',
+  icons: {
+    icon: [
+      { url: `${basePath}/favicon.ico?v=7x7`, sizes: 'any' },
+      { url: `${basePath}/favicon-32x32.png?v=7x7`, sizes: '32x32', type: 'image/png' },
+      { url: `${basePath}/favicon-16x16.png?v=7x7`, sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: `${basePath}/favicon.ico?v=7x7`,
+    apple: [{ url: `${basePath}/apple-touch-icon.png?v=7x7`, sizes: '180x180', type: 'image/png' }],
+  },
   alternates: { canonical: '/' },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   openGraph: {

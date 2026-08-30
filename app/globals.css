@@ -78,6 +78,28 @@ button, input, textarea { font: inherit; }
   pointer-events: none;
 }
 
+.home-scrap-card:nth-child(3n + 1) { transform: rotate(-.6deg); }
+.home-scrap-card:nth-child(3n + 2) { transform: rotate(.7deg); }
+.home-scrap-card:nth-child(3n) { transform: rotate(-.25deg); }
+.home-scrap-card { transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease; }
+.home-scrap-card:hover { transform: rotate(0) translateY(-7px); box-shadow: 0 24px 55px rgba(19,17,14,.25); z-index: 2; }
+
+.home-marquee { overflow: hidden; }
+
+.home-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: home-marquee 26s linear infinite;
+}
+
+.home-marquee-track span { white-space: nowrap; padding-right: 1.25rem; }
+
+@keyframes home-marquee { to { transform: translateX(-50%); } }
+
+@media (hover: none) {
+  .home-work-card [class*="translate-y-full"] { transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }

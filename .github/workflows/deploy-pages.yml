@@ -18,8 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /web
-      NEXT_PUBLIC_SITE_URL: https://thanapornj9.github.io/web/
+      NEXT_PUBLIC_BASE_PATH: /website
+      NEXT_PUBLIC_SITE_URL: https://7x7-artcraftstudio.github.io/website/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -13,6 +13,7 @@ export function SiteHeader({ tone = 'dark' }: { tone?: 'dark' | 'paper' }) {
         </a>
         <nav aria-label="Main navigation" className="flex items-center gap-3 overflow-x-auto font-mono text-[9px] uppercase tracking-[0.13em] sm:gap-5 sm:text-[10px] md:text-[11px]">
           <a href={sitePath('/projects/')} className="whitespace-nowrap transition-colors hover:text-rust">Projects</a>
+          <a href={sitePath('/studio/')} className="whitespace-nowrap transition-colors hover:text-rust">Studio</a>
           <a href={sitePath('/team/')} className="whitespace-nowrap transition-colors hover:text-rust">Team</a>
           <a href={sitePath('/contact/')} className="whitespace-nowrap transition-colors hover:text-rust">Contact</a>
           <a href="https://www.instagram.com/tc_art_creative_studio" aria-label="Instagram" target="_blank" rel="noreferrer" className="hidden whitespace-nowrap transition-colors hover:text-rust sm:inline">IG ↗</a>

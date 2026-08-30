@@ -14,8 +14,8 @@ npm run dev
 ## Build แบบเดียวกับ GitHub Pages
 
 ```powershell
-$env:NEXT_PUBLIC_BASE_PATH='/web'
-$env:NEXT_PUBLIC_SITE_URL='https://thanapornj9.github.io/web/'
+$env:NEXT_PUBLIC_BASE_PATH='/website'
+$env:NEXT_PUBLIC_SITE_URL='https://7x7-artcraftstudio.github.io/website/'
 npm run build
 ```
 
