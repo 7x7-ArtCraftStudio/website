@@ -1,18 +1,11 @@
 import { ArrowDownRight } from 'lucide-react';
-import { listPortfolioItems, type PortfolioItem } from '@/lib/portfolio';
+import Link from 'next/link';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
+import { catalogWorks } from '@/lib/catalog';
+import { listPortfolioItems } from '@/lib/portfolio';
 
 export const dynamic = 'force-dynamic';
-
-const catalogWorks: PortfolioItem[] = [
-  { id: 'catalog-01', title: 'The Forest Remembers', titleTh: 'ป่าที่จดจำ', category: 'Sculpture', materials: 'เหล็กดัด · ไม้ · วัสดุผสม', description: 'ประติมากรรมที่ขยายจังหวะของรากไม้ให้กลายเป็นโครงสร้างโปร่งเบา เชื่อมความแข็งของโลหะเข้ากับความเคลื่อนไหวของธรรมชาติ', imageUrl: '/portfolio/hero-sculpture.jpg', objectKey: null, year: '2026', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-02', title: 'Eroded Memory', titleTh: 'ร่องรอยที่เวลาแกะไว้', category: 'Wall Art', materials: 'ไม้สัก · ไม้รีไซเคิล', description: 'พื้นผิวแกะลึกที่ตั้งใจเก็บบาดแผลและร่องรอยของเนื้อไม้ ให้แสงเงาเปลี่ยนอารมณ์ของงานตลอดวัน', imageUrl: '/portfolio/wood-relief.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-03', title: 'Strata', titleTh: 'ชั้นของภูมิทัศน์', category: 'Fiber Art', materials: 'ไฟเบอร์ · สีผสม', description: 'ภาพนูนที่ถอดเส้นสายของภูมิประเทศออกมาเป็นจังหวะร่วมสมัย งานทุกชิ้นทำสีด้วยมือจึงไม่มีพื้นผิวใดเหมือนกัน', imageUrl: '/portfolio/fiber-landscape.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-04', title: 'Phoenix / Peacock', titleTh: 'เปลวที่ผลิบาน', category: 'Sculpture', materials: 'เหล็ก · สแตนเลส · สีพิเศษ', description: 'รูปทรงของนกถูกลดทอนให้เหลือเพียงเส้นแรงและแสงสะท้อน สร้างจุดเด่นให้ล็อบบี้และพื้นที่สาธารณะขนาดใหญ่', imageUrl: '/portfolio/metal-peacock.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-05', title: 'Westville Christmas', titleTh: 'ระฆังแห่งเวสต์วิลล์', category: 'Public Installation', materials: 'ไฟเบอร์ · โครงเหล็ก · สีเมทัลลิก', description: 'งานติดตั้งเทศกาลขนาดใหญ่ที่ออกแบบ ผลิต และติดตั้งครบวงจรสำหรับ Central Westville', imageUrl: '/portfolio/central-westville.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-06', title: 'Floating Orbits', titleTh: 'วงโคจรลอยตัว', category: 'Public Installation', materials: 'ไฟเบอร์ · สแตนเลส · ระบบแขวน', description: 'ประติมากรรมแขวนที่เล่นกับภาพสะท้อนและน้ำหนักลวงตา เปลี่ยนโถงศูนย์การค้าให้เป็นฉากเหนือจริง', imageUrl: '/portfolio/central-rayong.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-07', title: 'Tidal Lobby', titleTh: 'คลื่นในล็อบบี้', category: 'Interior Art', materials: 'ไฟเบอร์ · ไม้ · เรซิน', description: 'ชุดงานศิลป์สำหรับ Riva Hua Hin ที่นำเส้นคลื่นทะเลเข้าสู่ผนัง เคาน์เตอร์ และประติมากรรมแขวนภายในพื้นที่เดียวกัน', imageUrl: '/portfolio/riva-huahin.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-  { id: 'catalog-08', title: 'Woven Current', titleTh: 'กระแสถักทอ', category: 'Sculpture', materials: 'เชือก · โครงเหล็ก · เส้นใย', description: 'การถักเส้นใยด้วยมือบนโครงสร้างโลหะ สร้างรูปทรงที่ดูเบา เคลื่อนไหว และมีเงาซ้อนเป็นส่วนหนึ่งของงาน', imageUrl: '/portfolio/woven-sculpture.jpg', objectKey: null, year: '2025', sortOrder: 0, createdAt: '' },
-];
 
 const services = [
   ['01', 'Art Direction', 'พัฒนาแนวคิด ภาษาภาพ และเรื่องราวของงานให้เชื่อมกับพื้นที่และแบรนด์'],
@@ -24,7 +17,7 @@ const services = [
 export default async function Home() {
   const uploaded = await listPortfolioItems();
   const works = [...uploaded, ...catalogWorks];
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seven-seven-art-craft.devagentic676767.chatgpt.site/';
   const structuredData = {
     '@context': 'https://schema.org', '@type': 'ProfessionalService', name: '7x7 Art Craft Studio', url: siteUrl,
     image: `${siteUrl.replace(/\/$/, '')}/portfolio/hero-sculpture.jpg`, telephone: '+66-61-410-9400', email: '7x7art.studio@gmail.com',
@@ -37,15 +30,7 @@ export default async function Home() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
-      <header className="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b border-paper/20 bg-ink/80 px-5 py-4 text-paper backdrop-blur-md md:px-10">
-        <a href="#top" className="font-mono text-sm uppercase tracking-[0.22em]">7x7 <span className="text-paper/55">Art Craft Studio</span></a>
-        <nav className="flex items-center gap-5 font-mono text-[10px] uppercase tracking-[0.15em] sm:text-[11px]">
-          <a href="#work" className="hidden hover:text-rust sm:inline">Selected Work</a>
-          <a href="#studio" className="hidden hover:text-rust md:inline">Studio</a>
-          <a href="#contact" className="hover:text-rust">Start a project</a>
-          <a href="https://www.instagram.com/tc_art_creative_studio" aria-label="Instagram" target="_blank" rel="noreferrer">IG ↗</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section id="top" className="relative min-h-screen overflow-hidden bg-ink text-paper">
         <img src="/portfolio/hero-sculpture.jpg" alt="ประติมากรรมโลหะทำมือโดย 7x7 Art Craft Studio" className="absolute inset-0 h-full w-full object-cover object-center" />
@@ -95,6 +80,7 @@ export default async function Home() {
             </article>
           ))}
         </div>
+        <div className="mt-20 flex justify-end border-t border-paper/20 pt-7"><Link href="/projects" className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[.18em] text-rust">View all projects <ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></Link></div>
       </section>
 
       <section className="paper-texture px-5 py-20 md:px-10 md:py-28">
@@ -125,7 +111,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <footer className="flex flex-col gap-5 bg-ink px-5 py-8 font-mono text-[10px] uppercase tracking-[.16em] text-paper/45 md:flex-row md:items-center md:justify-between md:px-10"><p>© 2026 7x7 Art Craft Studio · Tax ID 01355670333111</p><div className="flex gap-5"><a href="https://www.facebook.com/profile.php?id=61574732772816" target="_blank" rel="noreferrer" className="hover:text-rust">Facebook ↗</a><a href="https://www.instagram.com/tc_art_creative_studio" target="_blank" rel="noreferrer" className="hover:text-rust">Instagram ↗</a><a href="/admin" className="hover:text-rust">Admin</a></div></footer>
+      <SiteFooter />
     </main>
   );
 }

@@ -6,7 +6,7 @@ const sans = Noto_Sans_Thai({ variable: '--font-sans', subsets: ['thai', 'latin'
 const mono = IBM_Plex_Mono({ variable: '--font-mono', subsets: ['latin'], weight: ['400', '500', '600'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seven-seven-art-craft.devagentic676767.chatgpt.site/'),
   title: {
     default: '7x7 Art Craft Studio | งานประติมากรรมและศิลปะตกแต่ง',
     template: '%s | 7x7 Art Craft Studio',
