@@ -1,5 +1,5 @@
 export async function GET() {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seven-seven-art-craft.devagentic676767.chatgpt.site/').replace(/\/$/, '');
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/').replace(/\/$/, '');
   const lastmod = new Date().toISOString();
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -10,3 +10,5 @@ export async function GET() {
 </urlset>`;
   return new Response(xml, { headers: { 'content-type': 'application/xml; charset=utf-8', 'cache-control': 'public, max-age=3600' } });
 }
+
+export const dynamic = 'force-static';

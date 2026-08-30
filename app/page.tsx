@@ -2,9 +2,7 @@ import { ArrowDownRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { catalogWorks } from '@/lib/catalog';
-import { listPortfolioItems } from '@/lib/portfolio';
-
-export const dynamic = 'force-dynamic';
+import { sitePath } from '@/lib/paths';
 
 const services = [
   ['01', 'Art Direction', 'พัฒนาแนวคิด ภาษาภาพ และเรื่องราวของงานให้เชื่อมกับพื้นที่และแบรนด์'],
@@ -14,9 +12,8 @@ const services = [
 ];
 
 export default async function Home() {
-  const uploaded = await listPortfolioItems();
-  const works = [...uploaded, ...catalogWorks];
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seven-seven-art-craft.devagentic676767.chatgpt.site/';
+  const works = catalogWorks;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/';
   const structuredData = {
     '@context': 'https://schema.org', '@type': 'ProfessionalService', name: '7x7 Art Craft Studio', url: siteUrl,
     image: `${siteUrl.replace(/\/$/, '')}/portfolio/hero-sculpture.jpg`, telephone: '+66-61-410-9400', email: '7x7art.studio@gmail.com',
@@ -32,7 +29,7 @@ export default async function Home() {
       <SiteHeader />
 
       <section id="top" className="relative min-h-screen overflow-hidden bg-ink text-paper">
-        <img src="/portfolio/hero-sculpture.jpg" alt="ประติมากรรมโลหะทำมือโดย 7x7 Art Craft Studio" className="absolute inset-0 h-full w-full object-cover object-center" />
+        <img src={sitePath('/portfolio/hero-sculpture.jpg')} alt="ประติมากรรมโลหะทำมือโดย 7x7 Art Craft Studio" className="absolute inset-0 h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,17,14,.9)_0%,rgba(19,17,14,.3)_62%,rgba(19,17,14,.1)_100%)]" />
         <div className="grain absolute inset-0 opacity-35" />
         <div className="relative z-10 flex min-h-screen max-w-[1500px] flex-col justify-end px-5 pb-10 pt-32 md:px-10 md:pb-14">
@@ -52,7 +49,7 @@ export default async function Home() {
           <p className="mt-16 max-w-2xl text-lg leading-8 text-ink/65">7x7 Art Craft Studio เชื่อว่าวัสดุทุกชนิดมีบุคลิกของตัวเอง ไม้มีเวลา เหล็กมีแรง ไฟเบอร์มีความเป็นไปได้ งานของเราจึงเริ่มจากการฟังวัสดุ ก่อนใช้ความรู้ด้านศิลปะ วิศวกรรม และการผลิต พามันไปสู่รูปทรงใหม่</p>
         </div>
         <div className="relative min-h-[560px] overflow-hidden bg-wood text-paper">
-          <img src="/portfolio/wood-process.jpg" alt="รายละเอียดพื้นผิวไม้แกะด้วยมือในเวิร์กช็อป" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={sitePath('/portfolio/wood-process.jpg')} alt="รายละเอียดพื้นผิวไม้แกะด้วยมือในเวิร์กช็อป" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-ink/35 mix-blend-multiply"/><div className="grain absolute inset-0"/>
           <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 border-t border-paper/30 bg-ink/70 backdrop-blur-sm">
             <div className="border-r border-paper/30 p-5"><p className="font-mono text-[10px] uppercase tracking-[.18em] text-paper/50">Material library</p><p className="mt-2 text-xl">Wood · Iron · Fiber</p></div>
@@ -79,7 +76,7 @@ export default async function Home() {
             </article>
           ))}
         </div>
-        <div className="mt-20 flex justify-end border-t border-paper/20 pt-7"><a href="/projects" className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[.18em] text-rust">View all projects <ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></a></div>
+        <div className="mt-20 flex justify-end border-t border-paper/20 pt-7"><a href={sitePath('/projects/')} className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[.18em] text-rust">View all projects <ArrowDownRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></a></div>
       </section>
 
       <section className="paper-texture px-5 py-20 md:px-10 md:py-28">
@@ -98,7 +95,7 @@ export default async function Home() {
       </section>
 
       <section id="contact" className="relative min-h-[88vh] overflow-hidden bg-wood px-5 py-20 text-paper md:px-10 md:py-28">
-        <img src="/portfolio/wood-relief.jpg" alt="พื้นผิวงานไม้แกะของสตูดิโอ" className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity"/><div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,17,14,.96),rgba(19,17,14,.65))]"/><div className="grain absolute inset-0"/>
+        <img src={sitePath('/portfolio/wood-relief.jpg')} alt="พื้นผิวงานไม้แกะของสตูดิโอ" className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity"/><div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,17,14,.96),rgba(19,17,14,.65))]"/><div className="grain absolute inset-0"/>
         <div className="relative z-10 mx-auto flex min-h-[65vh] max-w-[1450px] flex-col justify-between">
           <p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Start something / 04</p>
           <div className="my-16"><h2 className="text-[clamp(4rem,11vw,11rem)] font-semibold leading-[.76] tracking-[-.075em]">มีพื้นที่<br/>รอเรื่องราว<br/><span className="text-rust">อยู่ไหม?</span></h2></div>

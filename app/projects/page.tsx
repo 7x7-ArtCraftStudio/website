@@ -3,9 +3,7 @@ import { ArrowDownRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { catalogWorks } from '@/lib/catalog';
-import { listPortfolioItems } from '@/lib/portfolio';
-
-export const dynamic = 'force-dynamic';
+import { sitePath } from '@/lib/paths';
 
 export const metadata: Metadata = {
   title: 'ผลงานและโปรเจกต์',
@@ -14,15 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectsPage() {
-  const uploaded = await listPortfolioItems();
-  const works = [...uploaded, ...catalogWorks];
+  const works = catalogWorks;
   const categories = [...new Set(works.map((work) => work.category))];
 
   return (
     <main className="min-h-screen overflow-hidden bg-ink text-paper">
       <SiteHeader />
       <section className="relative min-h-[78vh] overflow-hidden border-b border-paper/20 px-5 pb-12 pt-32 md:px-10 md:pb-16">
-        <img src="/portfolio/central-rayong.jpg" alt="ประติมากรรมแขวนในพื้นที่สาธารณะโดย 7x7 Art Craft Studio" className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <img src={sitePath('/portfolio/central-rayong.jpg')} alt="ประติมากรรมแขวนในพื้นที่สาธารณะโดย 7x7 Art Craft Studio" className="absolute inset-0 h-full w-full object-cover opacity-45" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,17,14,.98),rgba(19,17,14,.45))]" /><div className="grain absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[60vh] max-w-[1600px] flex-col justify-end">
           <p className="mb-8 font-mono text-[10px] uppercase tracking-[.24em] text-rust">Project archive · 2025—2026</p>
@@ -60,7 +57,7 @@ export default async function ProjectsPage() {
       <section className="paper-texture px-5 py-20 text-ink md:px-10 md:py-28">
         <div className="mx-auto flex max-w-[1500px] flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <div><p className="font-mono text-xs uppercase tracking-[.22em] text-rust">Your space / Next</p><h2 className="mt-5 text-[clamp(3.8rem,8vw,8rem)] font-semibold leading-[.84] tracking-[-.07em]">พื้นที่ต่อไป<br/>อาจเป็นของคุณ</h2></div>
-          <a href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Brief us your project <ArrowDownRight className="size-5" /></a>
+          <a href={sitePath('/contact/')} className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Brief us your project <ArrowDownRight className="size-5" /></a>
         </div>
       </section>
       <SiteFooter />

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Mono, Noto_Sans_Thai } from 'next/font/google';
 import './globals.css';
 
-const sans = Noto_Sans_Thai({ variable: '--font-sans', subsets: ['thai', 'latin'], weight: ['300', '400', '500', '600', '700'] });
-const mono = IBM_Plex_Mono({ variable: '--font-mono', subsets: ['latin'], weight: ['400', '500', '600'] });
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thanapornj9.github.io/web/';
+const socialImageUrl = new URL('og.png', siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`).toString();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seven-seven-art-craft.devagentic676767.chatgpt.site/'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: '7x7 Art Craft Studio | งานประติมากรรมและศิลปะตกแต่ง',
     template: '%s | 7x7 Art Craft Studio',
@@ -23,14 +22,23 @@ export const metadata: Metadata = {
     type: 'website', locale: 'th_TH', siteName: '7x7 Art Craft Studio', url: '/',
     title: '7x7 Art Craft Studio — Objects With a Soul',
     description: 'ออกแบบและผลิตประติมากรรม งานศิลปะตกแต่ง และงานติดตั้งเฉพาะพื้นที่ จากไม้ เหล็ก ไฟเบอร์ และวัสดุผสม',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: '7x7 Art Craft Studio — Objects With a Soul' }],
+    images: [{ url: socialImageUrl, width: 1200, height: 630, alt: '7x7 Art Craft Studio — Objects With a Soul' }],
   },
   twitter: {
     card: 'summary_large_image', title: '7x7 Art Craft Studio — Objects With a Soul',
-    description: 'สตูดิโอศิลปะและงานคราฟต์ที่เปลี่ยนไม้ เหล็ก ไฟเบอร์ และวัสดุผสมให้เป็นงานเฉพาะตัว', images: ['/og.png'],
+    description: 'สตูดิโอศิลปะและงานคราฟต์ที่เปลี่ยนไม้ เหล็ก ไฟเบอร์ และวัสดุผสมให้เป็นงานเฉพาะตัว', images: [socialImageUrl],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="th"><body className={`${sans.variable} ${mono.variable}`}>{children}</body></html>;
+  return (
+    <html lang="th">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ArrowDownRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { sitePath } from '@/lib/paths';
 
 export const metadata: Metadata = {
   title: 'ทีมศิลปิน',
@@ -10,13 +11,13 @@ export const metadata: Metadata = {
 };
 
 const members = [
-  { name: 'Pannaruewan Chanbuala', nick: 'Komlom', role: 'Manager', image: '/team/01.jpg' },
-  { name: 'Dnalinrat Boontham', nick: 'Nook', role: 'Designer', image: '/team/02.jpg' },
-  { name: 'Anuphong Phongthai', nick: 'Jame', role: 'Designer', image: '/team/03.jpg' },
-  { name: 'Nattha Lompo', nick: 'Thing-Ly', role: 'Artist', image: '/team/04.jpg' },
-  { name: 'Warasawat Boonchuwit', nick: 'Ohm', role: 'Artist', image: '/team/05.jpg' },
-  { name: 'Wasan Somnuak', nick: 'Sunny', role: 'Artist', image: '/team/06.jpg' },
-  { name: 'Satorn Sanaoseng', nick: 'Nui', role: 'Artist', image: '/team/07.jpg' },
+  { name: 'Pannaruewan Chanbuala', nick: 'Komlom', role: 'Manager', image: sitePath('/team/01.jpg') },
+  { name: 'Dnalinrat Boontham', nick: 'Nook', role: 'Designer', image: sitePath('/team/02.jpg') },
+  { name: 'Anuphong Phongthai', nick: 'Jame', role: 'Designer', image: sitePath('/team/03.jpg') },
+  { name: 'Nattha Lompo', nick: 'Thing-Ly', role: 'Artist', image: sitePath('/team/04.jpg') },
+  { name: 'Warasawat Boonchuwit', nick: 'Ohm', role: 'Artist', image: sitePath('/team/05.jpg') },
+  { name: 'Wasan Somnuak', nick: 'Sunny', role: 'Artist', image: sitePath('/team/06.jpg') },
+  { name: 'Satorn Sanaoseng', nick: 'Nui', role: 'Artist', image: sitePath('/team/07.jpg') },
 ];
 
 export default function TeamPage() {
@@ -25,7 +26,7 @@ export default function TeamPage() {
       <SiteHeader />
 
       <section className="relative flex min-h-screen items-end overflow-hidden bg-ink px-5 pb-12 pt-28 text-paper md:px-10 md:pb-16">
-        <img src="/portfolio/wood-process.jpg" alt="พื้นผิวไม้และกระบวนการทำงานในสตูดิโอ" className="absolute inset-0 h-full w-full object-cover opacity-35" />
+        <img src={sitePath('/portfolio/wood-process.jpg')} alt="พื้นผิวไม้และกระบวนการทำงานในสตูดิโอ" className="absolute inset-0 h-full w-full object-cover opacity-35" />
         <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(19,17,14,.98)_0%,rgba(19,17,14,.75)_55%,rgba(19,17,14,.35)_100%)]" />
         <div className="grain absolute inset-0 opacity-40" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px]">
@@ -90,7 +91,7 @@ export default function TeamPage() {
       <section className="paper-texture px-5 py-20 md:px-10 md:py-24">
         <div className="mx-auto flex max-w-[1450px] flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-4xl text-[clamp(3.4rem,7vw,7rem)] font-semibold leading-[.88] tracking-[-.065em]">อยากสร้างอะไร<br/>ไปด้วยกัน?</h2>
-          <a href="/contact" className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Start a conversation <ArrowDownRight className="size-5" /></a>
+          <a href={sitePath('/contact/')} className="inline-flex w-fit items-center gap-3 border-b border-ink pb-2 font-mono text-xs uppercase tracking-[.18em] hover:text-rust">Start a conversation <ArrowDownRight className="size-5" /></a>
         </div>
       </section>
       <SiteFooter />

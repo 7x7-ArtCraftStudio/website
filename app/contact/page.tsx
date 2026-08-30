@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ArrowDownRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { sitePath } from '@/lib/paths';
 
 export const metadata: Metadata = {
   title: 'ติดต่อสตูดิโอ',
@@ -16,7 +17,7 @@ export default function ContactPage() {
     <main className="min-h-screen overflow-hidden bg-paper text-ink">
       <SiteHeader />
       <section className="relative flex min-h-screen items-end overflow-hidden bg-wood px-5 pb-12 pt-28 text-paper md:px-10 md:pb-16">
-        <img src="/studio.jpg" alt="7x7 Art Craft Studio ที่ปทุมธานี" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={sitePath('/studio.jpg')} alt="7x7 Art Craft Studio ที่ปทุมธานี" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,17,14,.94),rgba(19,17,14,.35))]" /><div className="grain absolute inset-0" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px]">
           <p className="mb-8 font-mono text-[10px] uppercase tracking-[.24em] text-rust">Open studio · Pathum Thani, Thailand</p>

@@ -32,6 +32,8 @@
 }
 
 :root {
+  --font-sans: 'Noto Sans Thai', 'Tahoma', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
   --background: #e9e0cf;
   --foreground: #17130f;
   --card: #eee6d7;
