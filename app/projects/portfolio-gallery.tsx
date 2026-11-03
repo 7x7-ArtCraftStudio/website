@@ -14,6 +14,7 @@ type PortfolioGalleryProps = { works: CatalogWork[] };
 export function PortfolioGallery({ works }: PortfolioGalleryProps) {
   const [active, setActive] = useState<CatalogFilter>('All');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [activePhotoIndex, setActivePhotoIndex] = useState(0);
   const visibleWorks = useMemo(
     () =>
       active === 'All'
@@ -25,6 +26,11 @@ export function PortfolioGallery({ works }: PortfolioGalleryProps) {
     ? visibleWorks.findIndex((work) => work.id === selectedId)
     : -1;
   const selected = selectedIndex >= 0 ? visibleWorks[selectedIndex] : null;
+  const selectedPhotos = selected?.galleryImageUrls ?? (selected ? [selected.fullImageUrl] : []);
+
+  useEffect(() => {
+    setActivePhotoIndex(0);
+  }, [selectedId]);
 
   useEffect(() => {
     if (!selected) return;
@@ -206,12 +212,16 @@ export function PortfolioGallery({ works }: PortfolioGalleryProps) {
             </div>
             <div className="relative min-h-0 bg-black/25 p-2 md:p-5">
               <img
-                src={selected.fullImageUrl}
-                alt={`หน้าเต็มจาก ART Catalog 2026 สำหรับ ${selected.titleTh}`}
+                src={selectedPhotos[activePhotoIndex] ?? selected.fullImageUrl}
+                alt={`${selected.titleTh} · ภาพที่ ${activePhotoIndex + 1}`}
                 className="h-full w-full object-contain"
               />
               <span className="pointer-events-none absolute bottom-4 left-4 bg-ink/85 px-3 py-2 font-mono text-[8px] uppercase tracking-[.16em] text-paper/70 md:bottom-7 md:left-7">
-                {selected.catalogPage > 0 ? 'Full catalog page · ภาพเต็มจาก PDF' : 'Full project image · ภาพหลักของผลงาน'}
+                {selected.catalogPage > 0
+                  ? 'Full catalog page · ภาพเต็มจาก PDF'
+                  : selectedPhotos.length > 1
+                    ? `Project photos · ${activePhotoIndex + 1}/${selectedPhotos.length}`
+                    : 'Full project image · ภาพหลักของผลงาน'}
               </span>
               <button
                 type="button"
@@ -229,6 +239,22 @@ export function PortfolioGallery({ works }: PortfolioGalleryProps) {
               >
                 <ChevronRight className="size-5" />
               </button>
+              {selectedPhotos.length > 1 ? (
+                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 bg-ink/85 p-2 md:bottom-5">
+                  {selectedPhotos.map((photo, index) => (
+                    <button
+                      key={photo}
+                      type="button"
+                      onClick={() => setActivePhotoIndex(index)}
+                      aria-label={`ดูภาพที่ ${index + 1} จาก ${selectedPhotos.length}`}
+                      aria-pressed={activePhotoIndex === index}
+                      className={`h-12 w-16 overflow-hidden border transition md:h-14 md:w-20 ${activePhotoIndex === index ? 'border-rust' : 'border-paper/30 opacity-65 hover:opacity-100'}`}
+                    >
+                      <img src={photo} alt="" className="h-full w-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
             <div className="grid gap-3 border-t border-paper/20 px-4 py-4 md:grid-cols-[1fr_auto] md:items-end">
               <div>

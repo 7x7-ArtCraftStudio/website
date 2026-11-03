@@ -15,6 +15,7 @@ export type CatalogWork = PortfolioItem & {
   number: string;
   categories: CatalogCategory[];
   fullImageUrl: string;
+  galleryImageUrls?: string[];
   catalogPage: number;
 };
 
