@@ -101,6 +101,7 @@ const studioWorks: CatalogWork[] = [
     galleryImageUrls: [
       sitePath('/portfolio/thread-wall-01.png'),
       sitePath('/portfolio/thread-wall-02.png'),
+      sitePath('/portfolio/thread-wall-detail.png'),
     ],
     objectKey: null,
     year: '2026',
