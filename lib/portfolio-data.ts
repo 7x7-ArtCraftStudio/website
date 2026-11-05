@@ -66,6 +66,27 @@ const studioWorks: CatalogWork[] = [
     createdAt: '',
     catalogPage: 0,
   },
+  {
+    id: 'studio-77',
+    number: '77',
+    title: 'Chromatic Fiber Column',
+    titleTh: 'เสาสายใยสีสัน',
+    category: 'Design',
+    categories: ['Design', 'Mix'],
+    materials: 'เส้นใยหลากสี · งานติดตั้งเฉพาะพื้นที่',
+    description: 'งานตกแต่งเสากลางพื้นที่ต้อนรับด้วยพื้นผิวเส้นสายหลากสีและองค์ประกอบวงแหวน',
+    imageUrl: sitePath('/portfolio/fiber-column-01.png'),
+    fullImageUrl: sitePath('/portfolio/fiber-column-01.png'),
+    galleryImageUrls: [
+      sitePath('/portfolio/fiber-column-01.png'),
+      sitePath('/portfolio/fiber-column-02.png'),
+    ],
+    objectKey: null,
+    year: '2026',
+    sortOrder: 77,
+    createdAt: '',
+    catalogPage: 0,
+  },
 ];
 
 export const allCatalogWorks = [...catalogWorks, ...publishedWorks, ...studioWorks];
