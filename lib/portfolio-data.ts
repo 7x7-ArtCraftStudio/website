@@ -181,6 +181,32 @@ const studioWorks: CatalogWork[] = [
     createdAt: '',
     catalogPage: 0,
   },
+  {
+    id: 'studio-83',
+    number: '83',
+    title: 'Timber Rhythms',
+    titleTh: 'จังหวะชั้นไม้',
+    category: 'Wood',
+    categories: ['Wood', 'Design'],
+    materials: 'ชิ้นไม้ต่างเฉด · งานประกอบไม้',
+    description: 'แผงไม้ประกอบจากชิ้นไม้ต่างขนาดและเฉดสี เรียงเป็นแนวซ้อนระดับให้เกิดมิติของแสงและเงา',
+    imageUrl: sitePath('/portfolio/timber-rhythms-01.jpg'),
+    fullImageUrl: sitePath('/portfolio/timber-rhythms-01.jpg'),
+    galleryImageUrls: [
+      sitePath('/portfolio/timber-rhythms-01.jpg'),
+      sitePath('/portfolio/timber-rhythms-02.jpg'),
+      sitePath('/portfolio/timber-rhythms-03.jpg'),
+      sitePath('/portfolio/timber-rhythms-04.jpg'),
+      sitePath('/portfolio/timber-rhythms-05.jpg'),
+      sitePath('/portfolio/timber-rhythms-06.jpg'),
+      sitePath('/portfolio/timber-rhythms-07.jpg'),
+    ],
+    objectKey: null,
+    year: '2026',
+    sortOrder: 83,
+    createdAt: '',
+    catalogPage: 0,
+  },
 ];
 
 export const allCatalogWorks = [...catalogWorks, ...publishedWorks, ...studioWorks];

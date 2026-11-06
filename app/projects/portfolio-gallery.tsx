@@ -195,7 +195,7 @@ export function PortfolioGallery({ works }: PortfolioGalleryProps) {
           aria-modal="true"
           aria-label={selected.titleTh}
         >
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] border border-paper/20">
+          <div className="grid min-h-0 grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto_auto] border border-paper/20">
             <div className="flex items-center justify-between border-b border-paper/20 px-4 py-3">
               <p className="font-mono text-[10px] uppercase tracking-[.18em] text-rust">
                 <span className="sm:hidden">{selected.catalogPage > 0 ? `Catalog 2026 · P.${selected.number}` : `Studio archive · P.${selected.number}`}</span>
@@ -239,23 +239,27 @@ export function PortfolioGallery({ works }: PortfolioGalleryProps) {
               >
                 <ChevronRight className="size-5" />
               </button>
-              {selectedPhotos.length > 1 ? (
-                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 bg-ink/85 p-2 md:bottom-5">
-                  {selectedPhotos.map((photo, index) => (
-                    <button
-                      key={photo}
-                      type="button"
-                      onClick={() => setActivePhotoIndex(index)}
-                      aria-label={`ดูภาพที่ ${index + 1} จาก ${selectedPhotos.length}`}
-                      aria-pressed={activePhotoIndex === index}
-                      className={`h-12 w-16 overflow-hidden border transition md:h-14 md:w-20 ${activePhotoIndex === index ? 'border-rust' : 'border-paper/30 opacity-65 hover:opacity-100'}`}
-                    >
-                      <img src={photo} alt="" className="h-full w-full object-cover" />
-                    </button>
-                  ))}
-                </div>
-              ) : null}
             </div>
+            {selectedPhotos.length > 1 ? (
+              <div
+                role="group"
+                aria-label="เลือกภาพผลงาน"
+                className="flex w-fit max-w-full justify-self-center gap-2 overflow-x-auto bg-ink/85 p-2"
+              >
+                {selectedPhotos.map((photo, index) => (
+                  <button
+                    key={photo}
+                    type="button"
+                    onClick={() => setActivePhotoIndex(index)}
+                    aria-label={`ดูภาพที่ ${index + 1} จาก ${selectedPhotos.length}`}
+                    aria-pressed={activePhotoIndex === index}
+                    className={`h-12 w-16 shrink-0 overflow-hidden border transition md:h-14 md:w-20 ${activePhotoIndex === index ? 'border-rust' : 'border-paper/30 opacity-65 hover:opacity-100'}`}
+                  >
+                    <img src={photo} alt="" className="h-full w-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            ) : null}
             <div className="grid gap-3 border-t border-paper/20 px-4 py-4 md:grid-cols-[1fr_auto] md:items-end">
               <div>
                 <h3 className="text-2xl font-semibold">{selected.titleTh}</h3>
